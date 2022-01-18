@@ -1,5 +1,6 @@
 package com.example.whattodo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -49,7 +50,6 @@ public class ChatFragment extends Fragment {
 
                 ChatListAdapter adapter = new ChatListAdapter(getActivity(), R.layout.chat_adapter_view_layout, chats);
 
-                Log.d("LOGAS", "GET ACTIVITY" + getActivity());
                 ListView listView = (ListView) view.findViewById(R.id.chatList);
 
                 listView = (ListView) view.findViewById(R.id.chatList);
@@ -58,17 +58,16 @@ public class ChatFragment extends Fragment {
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                        Intent intent = new Intent(getActivity(), MessageActivity.class);
+                        intent.putExtra("chatId",chats.get(position).getId());
+                        startActivity(intent);
                     }
                 });
-
-
             }
 
             @Override
             public void onFailure(Call<List<Chat>> call, Throwable t) {
             }
         });
-
     }
 }

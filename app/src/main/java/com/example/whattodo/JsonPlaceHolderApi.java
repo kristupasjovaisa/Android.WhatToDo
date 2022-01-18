@@ -1,6 +1,7 @@
 package com.example.whattodo;
 
 import com.example.whattodo.models.Chat;
+import com.example.whattodo.models.Message;
 import com.example.whattodo.models.User;
 
 import java.util.List;
@@ -16,4 +17,7 @@ public interface JsonPlaceHolderApi {
 
     @GET("users/{id}/chats")
     Call<List<Chat>> getChats(@Path("id") String id);
+
+    @GET("chats/{id}/messages")
+    Call<List<Message>> getMessages(@Path("id") String id);
 }

@@ -4,7 +4,7 @@ public class UserManager {
 
     public static UserManager shared = new UserManager();
 
-   public long userId = 2;
+   public long userId = 1;
 
     private UserManager() {
     }
